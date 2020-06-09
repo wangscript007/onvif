@@ -153,4 +153,6 @@ https://www.onvif.org/onvif/ver20/util/operationIndex.html
 
 # SOAP
 ![pic](./images/soap.png)
+![pic](./images/soap2.png)
+这个一个股票Web Services服务系统，其中GetStockPrice接口适用于查询股票当前价格，图中查询了IBM的股票价格，Web Services返回股票价格为34.5
 
