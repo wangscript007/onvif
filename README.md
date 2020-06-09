@@ -135,4 +135,8 @@ https://www.onvif.org/onvif/ver20/util/operationIndex.html
 
 比如说GetServices接口以上页面没有显示，但在http://www.onvif.org/ver10/device/wsdl/devicemgmt.wsdl中是的。所以想看全部的接口，还是得深入每个wsdl才行啊。
 
+# 开发流程
+![pic](./images/onvif-flow.png)
+![pic](./images/onvif-flow2.png)
+
 
