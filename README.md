@@ -41,6 +41,7 @@ Content-Length: 333
 注意：只有SOAP方式实现的Web Services才有WSDL文档，其他方式实现的Web Services并没有WSDL文档。
 我们可以这么理解WSDL：WSDL是一个使用XML语言书写的文档，这个文档描述了Web Services对外提供了哪些接口，就像动态库的.h文件一样。每个Web Services都有对应的WSDL文档。
 ![pic](./images/wsdl2c.png)
+- https://www.onvif.org/onvif/ver10/device/wsdl/devicemgmt.wsdl
 
 # 接口规范
 ONVIF接口被划分为不同模块，包括：设备发现、设备管理、设备输入输出服务、图像配置、媒体配置、实时流媒体、接收端配置、显示服务、事件处理、PTZ控制等。
