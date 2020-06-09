@@ -37,91 +37,11 @@ Content-Length: 333
 - 其他
 
 # WSDL
-WSDL是Web services 描述语言（Web Service Description Language）的缩写。是一种基于xml的网络服务描述语言，用来描述Web服务和说明如何与Web服务通信的XML语言，为用户提供详细的接口说明书。
-```
-<span data-wiz-span="data-wiz-span" style="font-size: 1rem;"><?xml version='1.0' encoding='UTF-8'?>
-<wsdl:definitions name="HelloWorld"
-    targetNamespace="http://server.cxf.webservice.web.apps.lucl.com/"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-    xmlns:tns="http://server.cxf.webservice.web.apps.lucl.com/"
-    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-    xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
-    >
-    <!-- 定义数据类型 -->
-    <wsdl:types>
-        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://server.cxf.webservice.web.apps.lucl.com/"
-            elementFormDefault="unqualified"
-            targetNamespace="http://server.cxf.webservice.web.apps.lucl.com/"
-            version="1.0">
-            <xs:element name="sayHi" type="tns:sayHi" />
-            <xs:element name="sayHiResponse" type="tns:sayHiResponse" />
-            <xs:complexType name="sayHi">
-                <xs:sequence>
-                    <xs:element minOccurs="0" name="arg0" type="xs:string" />
-                </xs:sequence>
-            </xs:complexType>
-            <xs:complexType name="sayHiResponse">
-                <xs:sequence>
-                    <xs:element minOccurs="0" name="return" type="xs:string" />
-                </xs:sequence>
-            </xs:complexType>
-        </xs:schema>
-    </wsdl:types>
-    <!-- 定义消息分组 -->
-    <wsdl:message name="sayHiResponse">
-        <wsdl:part element="tns:sayHiResponse" name="parameters" />
-    </wsdl:message>
-    <wsdl:message name="sayHi">
-        <wsdl:part element="tns:sayHi" name="parameters" />
-    </wsdl:message>
-    <!-- 定义port type -->
-    <wsdl:portType name="HelloWorldPortType">
-        <wsdl:operation name="sayHi">
-            <wsdl:input message="tns:sayHi" name="sayHi" />
-            <wsdl:output message="tns:sayHiResponse" name="sayHiResponse" />
-            <!-- 指定当 Web 服务设法响应客户机的请求时所发生的任何消息级异常 -->
-            <!--
-            <wsdl:fault name="" message=""></wsdl:fault> 
-            -->
-        </wsdl:operation>
-    </wsdl:portType>
-    <!-- binding操作到特定协议，即关联portType到协议，这里为SOAP -->
-    <!-- W3C 推荐了三个 Web 服务的绑定：
-            HTTP 上的 SOAP（SOAP over HTTP）
-            HTTP GET/POST
-            SOAP/MIME
-    -->
-    <wsdl:binding name="HelloWorldSoapBinding" type="tns:HelloWorldPortType">
-        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
-        <wsdl:operation name="sayHi">
-            <soap:operation soapAction="" style="document" />
-            <wsdl:input name="sayHi">
-                <soap:body use="literal" />
-            </wsdl:input>
-            <wsdl:output name="sayHiResponse">
-                <soap:body use="literal" />
-            </wsdl:output>
-            <!-- 应用portType处的fault -->
-            <!--
-            <wsdl:fault name="">
-            <soap:fault name="" use="literal"/>
-            </wsdl:fault> 
-            -->
-        </wsdl:operation>
-    </wsdl:binding>
-    <!--
-        描述binding的连接信息,根据绑定所实现的 portType 来处理请求。
-        对于 HTTP 上的 SOAP，这就是指向那个进程的 URL。
-    -->
-    <wsdl:service name="HelloWorld">
-        <wsdl:port binding="tns:HelloWorldSoapBinding" name="HelloWorldPort">
-            <soap:address location="http://localhost:9000/helloWorld" />
-        </wsdl:port>
-    </wsdl:service>
-</wsdl:definitions></span>
-```
+对于一个Web Services，我们如何知道它对外提供了多少个接口，以及每个接口是如何调用的，这就涉及到WSDL（Web Services Description Language，网络服务描述语言）。
+注意：只有SOAP方式实现的Web Services才有WSDL文档，其他方式实现的Web Services并没有WSDL文档。
+我们可以这么理解WSDL：WSDL是一个使用XML语言书写的文档，这个文档描述了Web Services对外提供了哪些接口，就像动态库的.h文件一样。每个Web Services都有对应的WSDL文档。
+![pic](./images/wsdl2c.png)
+
 # 接口规范
 ONVIF接口被划分为不同模块，包括：设备发现、设备管理、设备输入输出服务、图像配置、媒体配置、实时流媒体、接收端配置、显示服务、事件处理、PTZ控制等。
 
