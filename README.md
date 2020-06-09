@@ -143,3 +143,14 @@ https://www.onvif.org/onvif/ver20/util/operationIndex.html
 # 工具
 - ONVIF Device Test Tool
 
+# RPC
+![pic](./images/rpc.png)
+![pic](./images/rpc2.png)
+被调用方法的具体实现不在同一个进程，而是在别进程，甚至别的电脑上。RPC一个重要思想就是，使远程调用看起来像本地调用一样，调用者无需知道被调用接口具体在哪台机器上执行。
+
+# webservice
+![pic](./images/webservice.png)
+
+# SOAP
+![pic](./images/soap.png)
+
